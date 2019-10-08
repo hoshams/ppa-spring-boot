@@ -10,7 +10,7 @@
     </parent>
 
     <!-- Identification du projet -->
-    <groupId>io.github.agrica</groupId>
+    <groupId>com.github.agrica</groupId>
     <artifactId>ppa-spring-boot</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
