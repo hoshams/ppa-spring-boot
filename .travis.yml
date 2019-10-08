@@ -1,3 +1,7 @@
 language: java
 jdk: openjdk11
-script: cp .maven.xml $HOME/.m2/settings.xml && mvn clean deploy
+install:
+    mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+## Build and release to maven central
+script:
+    mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
