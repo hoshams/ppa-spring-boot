@@ -1,2 +1,3 @@
 language: java
-script: mvn clean deploy
+jdk: openjdk11
+script: cp .maven.xml $HOME/.m2/settings.xml && mvn clean deploy
