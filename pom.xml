@@ -10,7 +10,7 @@
     </parent>
 
     <!-- Identification du projet -->
-    <groupId>com.github.agrica</groupId>
+    <groupId>io.github.agrica</groupId>
     <artifactId>ppa-spring-boot</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
@@ -24,18 +24,15 @@
 
     <inceptionYear>2019</inceptionYear>
 
-    <!-- Elements pour le deploiement dans les repositories Agrica -->
     <distributionManagement>
-        <repository>
-            <id>nexus</id>
-            <name>Release Repository</name>
-            <url>${dist.releases.url}</url>
-        </repository>
         <snapshotRepository>
-            <id>nexus</id>
-            <name>Snapshots Repository</name>
-            <url>${dist.snapshots.url}</url>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
     </distributionManagement>
 
     <!-- pre-requis -->
@@ -160,7 +157,6 @@
     </properties>
 
     <build>
-
         <pluginManagement>
             <!-- Versions of plugins to use, to be sure that a new release automatically installed will not break an existing build -->
             <plugins>
@@ -386,12 +382,21 @@
                         </execution>
                     </executions>
                 </plugin>
-
             </plugins>
         </pluginManagement>
 
         <plugins>
-
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -511,15 +516,6 @@
 
 
     <profiles>
-
-        <profile>
-            <id>socle</id>
-            <properties>
-                <dist.snapshots.url>http://nexus/repository/maven-socle-releases/</dist.snapshots.url>
-                <dist.releases.url>http://nexus/repository/maven-socle-releases/</dist.releases.url>
-            </properties>
-        </profile>
-
         <profile>
             <id>release-notes-git</id>
             <activation>
