@@ -10,14 +10,31 @@ install:
     mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
 
 ## Build and release to maven central  
-script: 
-    mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
+#script: 
+#    mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
 
 ## Get the project version
 before_deploy:
     - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
     - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')    
 
+## Create release
+deploy:
+  -
+    provider: script
+    script: .travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: agrica/ppa-spring-boot
+      branch: master
+  -
+    provider: script
+    script: .travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: agrica/ppa-spring-boot
+      tags: true
+    
 cache:
     directories:
         - ~/.m2/repository
