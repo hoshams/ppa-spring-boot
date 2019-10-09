@@ -46,12 +46,9 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:git:ssh://gitlab-dei:socle/ppa-spring-boot.git</connection>
-        <developerConnection>scm:git:git@gitlab-dei:socle/ppa-spring-boot.git</developerConnection>
-        <url>http://gitlab-dei/socle/ppa-spring-boot</url>
-        <tag>HEAD</tag>
+        <connection>scm:git:https://github.com/agrica/ppa-spring-boot.git</connection>
+        <url>https://github.com/agrica/ppa-spring-boot</url>
     </scm>
-
 
     <properties>
         <!-- La version de maven -->
