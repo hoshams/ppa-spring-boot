@@ -8,6 +8,11 @@ install:
 script:
     mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
 
+## Get the project version
+before_deploy:
+    - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+    - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
+    
 cache:
     directories:
         - ~/.m2/repository
