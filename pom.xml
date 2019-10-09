@@ -466,8 +466,8 @@
 					  
 <!-- To generate javadoc -->
               <plugin>
-                  <groupid>org.apache.maven.plugins</groupid>
-                  <artifactid>maven-source-plugin</artifactid>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-source-plugin</artifactId>
                   <version>3.0.1</version>
                   <executions>
                       <execution>
@@ -479,8 +479,8 @@
                   </executions>
               </plugin>
               <plugin>
-                  <groupid>org.apache.maven.plugins</groupid>
-                  <artifactid>maven-javadoc-plugin</artifactid>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-javadoc-plugin</artifactId>
                   <version>2.10.4</version>
                   <executions>
                       <execution>
