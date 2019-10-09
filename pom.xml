@@ -463,6 +463,34 @@
         						<autoReleaseAfterClose>true</autoReleaseAfterClose>
       						  </configuration>					  
 					  </plugin>
+					  
+<!-- To generate javadoc -->
+              <plugin>
+                  <groupid>org.apache.maven.plugins</groupid>
+                  <artifactid>maven-source-plugin</artifactid>
+                  <version>3.0.1</version>
+                  <executions>
+                      <execution>
+                          <id>attach-sources</id>
+                          <goals>
+                              <goal>jar-no-fork</goal>
+                          </goals>
+                      </execution>
+                  </executions>
+              </plugin>
+              <plugin>
+                  <groupid>org.apache.maven.plugins</groupid>
+                  <artifactid>maven-javadoc-plugin</artifactid>
+                  <version>2.10.4</version>
+                  <executions>
+                      <execution>
+                          <id>attach-javadocs</id>
+                          <goals>
+                              <goal>jar</goal>
+                          </goals>
+                      </execution>
+                  </executions>
+              </plugin>					  
 					  <!-- To sign the artifacts -->
 					  <plugin>
 						  <groupId>org.apache.maven.plugins</groupId>
