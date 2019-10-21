@@ -14,7 +14,7 @@
     <groupId>io.github.agrica</groupId>
     <artifactId>ppa-spring-boot</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-beta1-SNAPSHOT</version>
+    <version>1.0.0-beta3-SNAPSHOT</version>
     <name>POM Parent Agrica - Projets Spring Boot</name>
     <organization>
         <name>Agrica</name>
@@ -30,14 +30,15 @@
     <inceptionYear>2019</inceptionYear>
     <distributionManagement>
         <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>nexus</id>
+            <url>${dist.snapshots.url}</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>nexus</id>
+            <url>${dist.releases.url}</url>
         </repository>
     </distributionManagement>
+	
     <!-- pre-requis -->
     <prerequisites>
         <maven>${maven.version}</maven>
@@ -405,6 +406,16 @@
                     <name>release</name>
                 </property>
             </activation>
+		<distributionManagement>
+			<snapshotRepository>
+				<id>ossrh</id>
+				<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			</snapshotRepository>
+			<repository>
+				<id>ossrh</id>
+				<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+			</repository>
+		</distributionManagement>		
             <build>
                 <plugins>
                     <!-- To release to Maven central -->
