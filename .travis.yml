@@ -23,16 +23,16 @@ deploy:
   -
     provider: script
     script: .travis/deploy.sh
-    #script: mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
     skip_cleanup: true
+    #repo condition, to avoid that forks of my repository accidently try to publish things to maven
     on:
       repo: agrica/ppa-spring-boot
       branch: master
   -
     provider: script
     script: .travis/deploy.sh
-    #script: mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
     skip_cleanup: true
+    #repo condition, to avoid that forks of my repository accidently try to publish things to maven    
     on:
       repo: agrica/ppa-spring-boot
       tags: true
@@ -47,3 +47,5 @@ notifications:
     recipients:
       - dupain.vincent@groupagrica.com
       - morille.jerome@groupagrica.com
+    on_success: always # default: change
+    on_failure: always # default: always      
