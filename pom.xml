@@ -282,26 +282,6 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-                <configuration>
-                    <source>${compile.source}</source>
-                    <target>${compile.target}</target>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.mapstruct</groupId>
-                            <artifactId>mapstruct-processor</artifactId>
-                            <version>${mapstruct.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                    <compilerArgs>
-                        <compilerArg>-Amapstruct.defaultComponentModel=spring</compilerArg>
-                        <compilerArg>-Amapstruct.unmappedTargetPolicy=WARN</compilerArg>
-                    </compilerArgs>
-                </configuration>
-            </plugin>
             <!-- Buildnumber -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
