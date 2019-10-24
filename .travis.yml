@@ -40,3 +40,10 @@ deploy:
 cache:
     directories:
         - ~/.m2/repository
+
+
+notifications:
+  email:
+    recipients:
+      - dupain.vincent@groupagrica.com
+      - morille.jerome@groupagrica.com
