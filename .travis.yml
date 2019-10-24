@@ -30,8 +30,8 @@ deploy:
       branch: master
   -
     provider: script
-    #script: .travis/deploy.sh
-    script: mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
+    script: .travis/deploy.sh
+    #script: mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
     skip_cleanup: true
     on:
       repo: agrica/ppa-spring-boot
