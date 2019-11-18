@@ -1,4 +1,4 @@
-# ppa-spring-boot
+# ppa-spring-boot [![Build Status](https://travis-ci.com/agrica/ppa-spring-boot.svg?branch=master)](https://travis-ci.com/agrica/ppa-spring-boot)
 
 Travis CI: https://travis-ci.com/agrica/ppa-spring-boot
 
