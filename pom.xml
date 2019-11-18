@@ -380,7 +380,7 @@
         </profile>
         <!-- To release to Maven central -->
         <profile>
-            <id>release</id>
+            <id>ossrh-release</id>
             <activation>
                 <property>
                     <name>ossrh-release</name>
