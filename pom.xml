@@ -383,7 +383,7 @@
             <id>release</id>
             <activation>
                 <property>
-                    <name>release</name>
+                    <name>ossrh-release</name>
                 </property>
             </activation>
 		<distributionManagement>
