@@ -1,0 +1,10 @@
+# IDE
+.idea
+*.iml
+
+# Maven
+target
+*.versionsBackup
+
+# Node
+node_modules
