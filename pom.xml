@@ -120,10 +120,13 @@
         <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
         <depgraph-maven-plugin.version>3.3.0</depgraph-maven-plugin.version>
         <!-- Changelog -->
+        <ppa-changelog-assembly-descriptor.version>0.0.4</ppa-changelog-assembly-descriptor.version>
         <gitlog-maven-plugin.version>1.13.7</gitlog-maven-plugin.version>
         <git-changelog-maven-plugin.version>1.59</git-changelog-maven-plugin.version>
         <!-- Packaging -->
         <iterator-maven-plugin.version>0.5.1</iterator-maven-plugin.version>
+        <!-- OSS RH -->
+        <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
         <!-- ================================= -->
         <!-- Compatibilit JDK11               -->
         <!-- ================================= -->
@@ -263,7 +266,7 @@
                             <configuration>
                                 <additionalProperties>
                                     <description>${project.description}</description>
-				    <git.commit.sha1>${git.commit.sha1}</git.commit.sha1>
+                                     <git.commit.sha1>${git.commit.sha1}</git.commit.sha1>
                                     <git.branch>${git.branch}</git.branch>					
                                 </additionalProperties>
                             </configuration>
@@ -378,6 +381,7 @@
                 <packaging.assembly.app.format>dir</packaging.assembly.app.format>
             </properties>
         </profile>
+
         <!-- To release to Maven central -->
         <profile>
             <id>ossrh-release</id>
@@ -402,7 +406,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.8</version>
+                        <version>${nexus-staging-maven-plugin.version}</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
